@@ -15,6 +15,7 @@ class TableParser implements BlockParserInterface
             throw new LogicException('invalid block type');
         }
 
-        return sprintf("<twig:vxeb:Table :withHeadings=\"%s\" :items='%s' />", $block['data']['withHeadings'], json_encode($block['data']['content']));
+        $items = json_encode($block['data']['content']);
+        return sprintf("{%% set tableItems = %s %%}<twig:vxeb:Table :withHeadings=\"%s\" :items=\"tableItems\" />", $items, $block['data']['withHeadings'] ? 'true' : 'false');
     }
 }

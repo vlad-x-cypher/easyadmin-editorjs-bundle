@@ -15,6 +15,8 @@ class QuoteParser implements BlockParserInterface
             throw new LogicException('invalid block type');
         }
 
-        return sprintf("<twig:vxeb:Quote text=\"%s\" caption=\"%s\" />", $block['data']['text'], $block['data']['caption']);
+        $text = str_replace('"', '&quot;', $block['data']['text']);
+        $caption = str_replace('"', '&quot;', $block['data']['caption']);
+        return sprintf("<twig:vxeb:Quote text=\"%s\" caption=\"%s\" />", $text, $caption);
     }
 }

@@ -16,9 +16,9 @@ class ListParser implements BlockParserInterface
         }
 
         return sprintf(
-            "<twig:vxeb:List type=\"%s\" :items='%s' />",
+            "{%% set listItems = %s %%}<twig:vxeb:List type=\"%s\" :items='listItems' />",
+            json_encode($block['data']['items']),
             $block['data']['style'],
-            json_encode($block['data']['items'])
         );
     }
 }
