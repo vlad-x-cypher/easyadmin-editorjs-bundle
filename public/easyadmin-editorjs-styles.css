@@ -1,0 +1,6 @@
+.ea-editorjs {
+    border: 1px solid var(--form-input-border-color);
+    padding-top: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+}

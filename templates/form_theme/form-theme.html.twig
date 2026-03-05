@@ -1,0 +1,8 @@
+{% block vlad_x_easyadmin_editorjs_widget %}
+   {{ form_widget(form, {attr: {
+        'class': "editor-js-body  d-none",
+        'data-tools': form.vars.ea_vars.field.customOptions.get('editorjsTools')|default(null)|json_encode
+    }}) }}
+
+   <div id="{{ id }}-editor-js" class="ea-editorjs"></div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% if type == 'ordered' %}
+<ol>
+    {% for item in items %}
+        <li>{{ item.content|raw }}</li>
+    {% endfor %}
+</ol>
+{% else %}
+<ul>
+    {% for item in items %}
+        <li>
+        {%- if type == 'checklist' %}
+           <input type="checkbox" {% if item.meta.checked|default(false) %}checked{% endif %}>
+        {% endif -%}
+        {{ item.content|raw }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

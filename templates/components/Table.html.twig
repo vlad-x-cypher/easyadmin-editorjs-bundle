@@ -1,0 +1,23 @@
+<table>
+   {% if withHeadings %}
+   <thead>
+       <tr>
+           {% for txt in items[0] %}
+           <td>{{ txt|raw }}</td>
+           {% endfor %}
+       </tr>
+   </thead>
+   {% endif %}
+   <tbody>
+    {% for item in items %}
+
+    {% if withHeadings and loop.index0 == 0 %}{% else %}
+       <tr>
+           {% for txt in item %}
+           <td>{{ txt|raw }}</td>
+           {% endfor %}
+       </tr>
+    {% endif %}
+    {% endfor %}
+   </tbody>
+</table>

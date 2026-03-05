@@ -1,0 +1,19 @@
+{
+    "name": "vlad-x/easyadmin-editorjs-bundle",
+    "type": "symfony-bundle",
+    "description": "Editor.js field for easyadmin",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "VladX\\EasyadminEditorjsBundle\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.1|>=8.2|>=8.3",
+        "easycorp/easyadmin-bundle": "^5.0",
+        "symfony/framework-bundle": "^6.0|^7.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
