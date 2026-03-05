@@ -2,7 +2,7 @@
     "name": "vlad-x/easyadmin-editorjs-bundle",
     "type": "symfony-bundle",
     "description": "Editor.js field for easyadmin",
-    "minimum-stability": "stable",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "VladX\\EasyadminEditorjsBundle\\": "src/"
