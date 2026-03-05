@@ -11,7 +11,7 @@ return static function (ContainerConfigurator $container) {
     $container->services()
         ->set(Parser::class)
             ->factory([null, 'createParserInstance'])
-            ->args([service(SluggerInterface::class)])
+            ->args([service(SluggerInterface::class)->nullOnInvalid()])
 
         ->set(Paragraph::class)
             ->tag('twig.component')
