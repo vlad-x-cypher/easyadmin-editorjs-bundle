@@ -10,7 +10,7 @@ use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\ParagraphParser;
 use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\QuoteParser;
 use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\TableParser;
 
-class Parser
+class Parser implements ParserInterface
 {
     /**
      * @var array<string,BlockParserInterface> $blockParsers
