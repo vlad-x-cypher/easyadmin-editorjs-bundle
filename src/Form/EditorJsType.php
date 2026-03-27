@@ -31,7 +31,7 @@ class EditorJsType extends AbstractType implements DataTransformerInterface
     public function transform(mixed $value): mixed
     {
         if (!\is_string($value)) {
-            return json_encode($value);
+            return json_encode($value, JSON_UNESCAPED_UNICODE);
         }
 
         if ('' === $value) {
