@@ -17,6 +17,10 @@ class QuoteParser implements BlockParserInterface
 
         $text = str_replace('"', '&quot;', $block['data']['text']);
         $caption = str_replace('"', '&quot;', $block['data']['caption']);
-        return sprintf("<twig:vxeb:Quote text=\"%s\" caption=\"%s\" />", $text, $caption);
+        return sprintf(
+            "{%% set caption = %s %%}{%% set quoteText = %s %%}<twig:vxeb:Quote :text='quoteText[0]' :caption='caption[0]' />",
+            json_encode([$block['data']['caption']], JSON_UNESCAPED_UNICODE),
+            json_encode([$block['data']['text']], JSON_UNESCAPED_UNICODE),
+        );
     }
 }

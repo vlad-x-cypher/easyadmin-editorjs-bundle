@@ -16,6 +16,9 @@ class ParagraphParser implements BlockParserInterface
         }
 
         $text = str_replace('"', '&quot;', $block['data']['text']);
-        return sprintf("<twig:vxeb:Paragraph text=\"%s\" />", $text);
+        return sprintf(
+            "{%% set paragraph = %s %%}<twig:vxeb:Paragraph :text='paragraph[0]' />",
+            json_encode([$block['data']['text']], JSON_UNESCAPED_UNICODE),
+        );
     }
 }

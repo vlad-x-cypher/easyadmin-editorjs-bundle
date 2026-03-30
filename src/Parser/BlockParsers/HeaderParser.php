@@ -24,8 +24,12 @@ class HeaderParser implements BlockParserInterface
             $id = $this->slugger->slug($block['data']['text']);
         }
 
-        $text = str_replace('"', '&quot;', $block['data']['text']);
 
-        return sprintf("<twig:vxeb:Header level=\"%d\" id=\"%s\" text=\"%s\" />", $block['data']['level'], $id, $text);
+        return sprintf(
+            "{%% set header = %s %%}<twig:vxeb:Header level=\"%d\" id=\"%s\" :text='header[0]'/>",
+            json_encode([$block['data']['text']], JSON_UNESCAPED_UNICODE),
+            $block['data']['level'],
+            $id,
+        );
     }
 }
