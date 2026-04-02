@@ -1,5 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initilizeEditorJS() {
   Array.from(document.querySelectorAll('.editor-js-body')).forEach(el => {
+    if(el.dataset.editorJsInitialized === "true") {
+      return;
+    }
     const cfg = {
         holder: `${el.id}-editor-js`,
     };
@@ -15,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const editor = new EditorJS(cfg);
+    el.dataset.editorJsInitialized = "true";
     document.addEventListener('ea.form.submit', (e) => {
       editor
         .save()
@@ -26,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   });
-});
+}
 
-
+document.addEventListener('DOMContentLoaded', initilizeEditorJS);
+document.addEventListener('ea.collection.item-added', initilizeEditorJS)
