@@ -1,3 +1,4 @@
+{% macro renderList(type, items) %}
 {% if type == 'ordered' %}
 <ol>
     {% for item in items %}
@@ -11,7 +12,14 @@
         {%- if type == 'checklist' %}
            <input type="checkbox" {% if item.meta.checked|default(false) %}checked{% endif %}>
         {% endif -%}
-        {{ item.content|raw }}</li>
+        {{ item.content|raw }}
+        {% if item.items %}
+            {{ _self.renderList(type, item.items) }}
+        {% endif %}
+        </li>
     {% endfor %}
 </ul>
 {% endif %}
+{% endmacro %}
+
+{{ _self.renderList(type, items) }}
