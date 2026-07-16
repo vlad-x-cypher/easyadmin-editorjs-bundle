@@ -8,4 +8,5 @@ interface ParserInterface
 {
     public function registerBlockTypeParser(string $type, BlockParserInterface $parser): self;
     public function parse(?array $editorData = []): string;
+    public function toMd(?array $editorData = []): string;
 }

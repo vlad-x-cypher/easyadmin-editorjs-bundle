@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Exception\LogicException;
 class ListParser implements BlockParserInterface
 {
     /**
-     * @param array<string,mixed> $block
+     * @param array<string, array{type: string, data: array{items: string[], style: string}}> $block
      */
     public function parse(array $block): string
     {

@@ -11,7 +11,7 @@ class HeaderParser implements BlockParserInterface
     {
     }
     /**
-     * @param array<string,mixed> $block
+     * @param array<string,array{type: string, data: array{text: string, level: int}}> $block
      */
     public function parse(array $block): string
     {

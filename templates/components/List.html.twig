@@ -2,7 +2,12 @@
 {% if type == 'ordered' %}
 <ol>
     {% for item in items %}
-        <li>{{ item.content|raw }}</li>
+        <li>
+            {{- item.content|raw }}
+            {% if item.items %}
+                {{ _self.renderList(type, item.items) }}
+            {% endif %}
+        </li>
     {% endfor %}
 </ol>
 {% else %}
