@@ -20,8 +20,23 @@ final class DefaultEditorJSField implements FieldInterface
                 'https://cdn.jsdelivr.net/npm/@editorjs/inline-code@1.5.2',
                 'https://cdn.jsdelivr.net/npm/@editorjs/list@2.0.9',
                 'https://cdn.jsdelivr.net/npm/@editorjs/quote@2.7.6',
+                '/bundles/easyadmineditorjs/easyadmin-editorjs-details-block.js',
             )
             ->addTool('paragraph', ['class' => 'Paragraph'])
+            ->addTool('details', ['class' => 'DetailsBlock', 'config' => [
+                'tools' => [
+                    'paragraph' => ['class' => 'Paragraph'],
+                    'inlineCode' => ['class' => 'InlineCode'],
+                    'list' => [
+                        'class' => 'EditorjsList',
+                        'inlineToolbar' => true,
+                        'config' => [
+                            'defaultStyle' => 'unordered'
+                          ]
+                    ],
+                ],
+            ]
+            ])
             ->addTool('inlineCode', ['class' => 'InlineCode'])
             ->addTool('table', [
                 'class' => 'Table',
