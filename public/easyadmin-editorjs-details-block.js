@@ -25,6 +25,12 @@ class DetailsBlock {
         editorContainer.style.border = '1px solid var(--form-input-border-color)';
         summary.style.border = '1px solid var(--form-input-border-color)';
         summary.style.padding = '4px';
+        // Do not toggle on spacebar
+        summary.onkeyup = (e) => {
+            if(e.key == " ") {
+                e.preventDefault();
+            }
+        };
         this.titleInput.style.width = '90%';
 
         summary.appendChild(this.titleInput);
