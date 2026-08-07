@@ -36,6 +36,12 @@ class DetailsBlock {
         summary.appendChild(this.titleInput);
         details.appendChild(summary);
         details.appendChild(editorContainer);
+        details.onkeyup = (e) => {
+            e.stopPropagation();
+        };
+        details.onkeydown = (e) => {
+            e.stopPropagation();
+        };
 
         const cfg = {
             holder: editorContainer,
