@@ -5,6 +5,7 @@ namespace VladX\EasyadminEditorjsBundle\Parser;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Twig\Environment;
 use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\BlockParserInterface;
+use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\DetailsParser;
 use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\HeaderParser;
 use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\ListParser;
 use VladX\EasyadminEditorjsBundle\Parser\BlockParsers\ParagraphParser;
@@ -59,6 +60,8 @@ class Parser implements ParserInterface
             ->registerBlockTypeParser('list', new ListParser())
             ->registerBlockTypeParser('quote', new QuoteParser())
             ->registerBlockTypeParser('table', new TableParser())
+            ->registerBlockTypeParser('table', new TableParser())
+            ->registerBlockTypeParser('details', new DetailsParser($parser))
         ;
     }
 

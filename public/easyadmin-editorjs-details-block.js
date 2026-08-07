@@ -20,7 +20,7 @@ class DetailsBlock {
         const summary = document.createElement('summary');
         const editorContainer = document.createElement('div');
         this.titleInput = document.createElement('input');
-        this.titleInput.value = this.data && this.data.header ? this.data.header : "";
+        this.titleInput.value = this.data && this.data.summary ? this.data.summary : "";
         editorContainer.style.padding = '1rem';
         editorContainer.style.border = '1px solid var(--form-input-border-color)';
         summary.style.border = '1px solid var(--form-input-border-color)';
@@ -49,7 +49,7 @@ class DetailsBlock {
             return null;
         }
         return {
-            header: this.titleInput.value,
+            summary: this.titleInput.value,
             data: await this.innerEditor.save(),
         };
     }

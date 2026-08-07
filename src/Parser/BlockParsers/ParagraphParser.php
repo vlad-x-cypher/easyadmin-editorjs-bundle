@@ -15,7 +15,6 @@ class ParagraphParser implements BlockParserInterface
             throw new LogicException('invalid block type');
         }
 
-        $text = str_replace('"', '&quot;', $block['data']['text']);
         return sprintf(
             "{%% set paragraph = %s %%}<twig:vxeb:Paragraph :text='paragraph[0]' />",
             json_encode([$block['data']['text']], JSON_UNESCAPED_UNICODE),
