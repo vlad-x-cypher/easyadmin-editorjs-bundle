@@ -2,7 +2,7 @@ class DetailsBlock {
     static get toolbox() {
         return {
             title: "Details",
-            icon: '<svg width="17" height="15" viewBox="0 0 336 276" xmlns="http://www.w3.org/2000/svg"><path d="M291 150V79c0-19-15-34-34-34H79c-19 0-34 15-34 34v42l67-44 81 72 56-29 42 30zm0 52l-43-30-56 30-81-67-66 39v23c0 19 15 34 34 34h178c17 0 31-13 34-29zM79 0h178c44 0 79 35 79 79v118c0 44-35 79-79 79H79c-44 0-79-35-79-79V79C0 35 35 0 79 0z"/></svg>',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="2" y1="9" x2="22" y2="9"></line><circle cx="19" cy="6.5" r="0.5" fill="currentColor"></circle><line x1="6" y1="13" x2="14" y2="13" stroke-width="1.5"></line><line x1="6" y1="16" x2="18" y2="16" stroke-width="1.5"></line></svg>',
         }
     }
     constructor(t) {
@@ -36,6 +36,7 @@ class DetailsBlock {
         summary.appendChild(this.titleInput);
         details.appendChild(summary);
         details.appendChild(editorContainer);
+        // Stop event propogation to parent EditorJS instance.
         details.onkeyup = (e) => {
             e.stopPropagation();
         };
